@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Musik</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    #music-button {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+    #music-button img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Tombol Musik -->
+<button id="music-button">
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABh..." alt="Play Music" />
+</button>
+
+<!-- Audio -->
+<audio id="bg-music" loop>
+  <source src="data:audio/mp3;base64,AAAAGGZ0eXBkYXNoAAAAAGlzbzZtcDQxAAACxG1vb3YAAABsbXZoZAAAAADiZxUh4mcVIQAArEQAvzgAAAEAAAEAAAAAAAAAAAAA..." type="audio/mp3" />
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const button = document.getElementById('music-button');
+  let isPlaying = false;
+
+  button.addEventListener('click', () => {
+    if (isPlaying) {
+      music.pause();
+    } else {
+      music.play();
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+</body>
+</html>
